@@ -22,19 +22,20 @@ describe("Thermostat", function() {
     expect(thermostat.minimumTemp).toBe(10);
   });
 
-  it("has a max temperature of 25 when on powersaver mode", function() {
-    thermostat.powersaver = true
-    expect(thermostat.maximumTemp()).toBe(25);
+  it("has a max temp of 25 when power saving mode is on", function() {
+    expect(thermostat.powerSavingMode).toBe(true);
+    expect(thermostat.maxTemperature).toBe(25);
   });
 
-  it("has a max temperature of 32 when powersaver mode is off", function() {
-    thermostat.powersaver = false
-    expect(thermostat.maximumTemp()).toBe(32);
+  it("has a max temp of 32 when power saving mode is off", function() {
+    thermostat.powerSavingSwitch();
+    expect(thermostat.powerSavingMode).toBe(false);
+    expect(thermostat.maxTemperature).toBe(32);
   });
 
-  it("has a default powersaver value of true", function() {
-    expect(thermostat.powersaver).toBe(true);
-  })
+  it("powerSavingMode is on by default", function () {
+    expect(thermostat.powerSavingMode).toBe(true);
+  });
 
 
 });
