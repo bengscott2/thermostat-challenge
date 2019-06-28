@@ -15,13 +15,13 @@ $(document).ready(function() {
 
   $('#powersaving-on').click(function() {
     thermostat.switchPowerSavingModeOn();
-    $('#power-saving-status').text('on')
+    $('#power-saving-status').text('on');
     updateTemperature();
   });
 
   $('#powersaving-off').click(function() {
     thermostat.switchPowerSavingModeOff();
-    $('#power-saving-status').text('off')
+    $('#power-saving-status').text('off');
     updateTemperature();
   });
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
   });
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.temperature)
-    $('#temperature').attr('heading', thermostat.energyUsage());
+    $('#temperature').text(thermostat.temperature);
+    $('#temperature').attr('class', thermostat.energyUsage());
   };
 });
